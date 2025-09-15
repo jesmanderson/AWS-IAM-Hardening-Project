@@ -1,0 +1,68 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyIAMPolicyTampering",
+      "Effect": "Deny",
+      "Action": [
+        "iam:CreatePolicyVersion",
+        "iam:SetDefaultPolicyVersion",
+        "iam:CreatePolicy",
+        "iam:DeletePolicy",
+        "iam:AttachUserPolicy",
+        "iam:AttachRolePolicy",
+        "iam:AttachGroupPolicy",
+        "iam:PutUserPolicy",
+        "iam:PutRolePolicy",
+        "iam:PutGroupPolicy",
+        "iam:UpdateAssumeRolePolicy",
+        "iam:CreateUser",
+        "iam:CreateRole",
+        "iam:CreateAccessKey",
+        "iam:CreateLoginProfile",
+        "iam:UpdateLoginProfile",
+        "iam:AddUserToGroup",
+        "iam:RemoveUserFromGroup",
+        "iam:DeleteUser",
+        "iam:DeleteRole"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "DenyPassRoleWildcard",
+      "Effect": "Deny",
+      "Action": "iam:PassRole",
+      "Resource": "*"
+    },
+    {
+      "Sid": "DenyOrgAndAccountAdmin",
+      "Effect": "Deny",
+      "Action": [
+        "organizations:*",
+        "account:*",
+        "sso:*",
+        "sso-admin:*"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowSafeReadOnlyStarter",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:Describe*",
+        "s3:Get*",
+        "s3:List*",
+        "logs:Describe*",
+        "logs:Get*",
+        "logs:List*",
+        "cloudwatch:Describe*",
+        "cloudwatch:Get*",
+        "cloudwatch:List*",
+        "iam:Get*",
+        "iam:List*",
+        "sts:GetCallerIdentity"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
