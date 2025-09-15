@@ -1,0 +1,21 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Sid": "DenyAllActionsIfNoMFA",
+    "Effect": "Deny",
+    "NotAction": [
+      "iam:CreateVirtualMFADevice",
+      "iam:EnableMFADevice",
+      "iam:ListMFADevices",
+      "iam:ListVirtualMFADevices",
+      "iam:ResyncMFADevice",
+      "iam:DeleteVirtualMFADevice",
+      "iam:GetUser",
+      "sts:GetCallerIdentity",
+      "sts:GetSessionToken",
+      "iam:ChangePassword"
+    ],
+    "Resource": "*",
+    "Condition": { "BoolIfExists": { "aws:MultiFactorAuthPresent": "false" } }
+  }]
+}
