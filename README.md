@@ -1,4 +1,4 @@
-# AWS IAM Hardening Project (Beginner Friendly)
+# AWS IAM Hardening Project
 
 This project is a **step-by-step AWS IAM hardening guide**.  
 It’s written in **plain language** so new engineers can learn how to secure AWS Identity and Access Management (IAM) using the AWS CLI and PowerShell.
